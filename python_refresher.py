@@ -36,33 +36,24 @@
 
 def mergeSort(lis):
     if len(lis) == 1:
-        # print("return", lis)
         return lis
 
     left = lis[:len(lis) // 2]
     right = lis[len(lis) // 2:]
 
-    def merge(lf, rt):
-        i, comb = 0, []
-        # print("in merge", lf, rt)
-        while i < len(lf):
-            for j in range(len(rt)):
-                if lf[i] < rt[j]:
-                    comb += [lf[i]]
-                    if i == len(lf)-1:
-                        comb += rt[j:]
-                    i += 1
-                    break
-                else:
-                    comb += [rt[j]]
-                    if j == len(rt)-1:
-                        comb += lf[i:]
-                        i = len(lf)
+    def merge(left, right):
+        lf_i, rt_i, comb = 0, 0, []
+        while lf_i < len(left) and rt_i < len(right):
+            if left[lf_i] < right[rt_i]:
+                comb += [left[lf_i]]
+                lf_i += 1
+            else:
+                comb += [right[rt_i]]
+                rt_i += 1
+        comb += right[rt_i:] if lf_i == len(left) else left[lf_i:]
         return comb
-    # print("before return", left, right)
-    print(mergeSort(left), mergeSort(right))
+
     return merge(mergeSort(left), mergeSort(right)) 
-    # print("after return", left, right)
 
 print(mergeSort([2,5,4,1,7,3,4,2]))
 
