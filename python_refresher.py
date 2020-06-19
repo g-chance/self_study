@@ -1,4 +1,43 @@
+#   ==================== Collections - Counter module ====================
+
+# from collections import Counter
+
+# c = Counter({'f':1, 'e':6})
+# print(c)
+# d = Counter('fleeeeeeeeergh')
+# c.update(['g','w','w'])
+# print(c - d)
+# print(c)
+
+
+# lis = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 88]
+# i, p = 0, len(lis)-1
+# while p > i:
+#     if lis[i] > lis[p]:
+#         lis[i], lis[p], lis[p-1] = lis[p-1], lis[i], lis[p]
+#         p -= 1
+#     else:
+#         i += 1
+# print(lis)
+
+
 #   ==================== Heap Practice ====================
+
+        #   =============== heapq module ===============
+import heapq as h
+
+k = 2
+lis = [2,5,4,7,8,9,3,4]
+h.heapify(lis)
+
+print(lis)
+
+for i in range(k-1):
+    h.heappop(lis)
+
+print(lis[0])
+
+        #   =============== Attempt at implementing my own max-heap ===============
 
 # class MinHeap:
 #     def __init__(self):
@@ -34,28 +73,64 @@
 
 #   ==================== Sorting Practice ====================
 
-def mergeSort(lis):
-    if len(lis) == 1:
-        return lis
+    #   =============== Quick Sort ===============
+        # Holy shitnit I did it!
 
-    left = lis[:len(lis) // 2]
-    right = lis[len(lis) // 2:]
+# def quickSort(lis, piv):
 
-    def merge(left, right):
-        lf_i, rt_i, comb = 0, 0, []
-        while lf_i < len(left) and rt_i < len(right):
-            if left[lf_i] < right[rt_i]:
-                comb += [left[lf_i]]
-                lf_i += 1
-            else:
-                comb += [right[rt_i]]
-                rt_i += 1
-        comb += right[rt_i:] if lf_i == len(left) else left[lf_i:]
-        return comb
+#     if len(lis) == 1:
+#         return lis
 
-    return merge(mergeSort(left), mergeSort(right)) 
+#     def pivot(lis, p):
+#         i = 0
+#         while p > i:
+#             if lis[i] > lis[p]:
+#                 lis[i], lis[p], lis[p-1] = lis[p-1], lis[i], lis[p]
+#                 p -= 1
+#             else:
+#                 i += 1
+#         if i == 0:
+#             return lis[:i+1], lis[i+1:]
+#         return lis[:i], lis[i:]
 
-print(mergeSort([2,5,4,1,7,3,4,2]))
+#     lf, rt = pivot(lis, piv)
+#     print("lf", lf, "rt", rt)
+    
+#     left = quickSort(lf, len(lf)-1)
+#     right = quickSort(rt, len(rt)-1)
+
+#     return left + right
+
+# nums = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]
+# print(quickSort(nums, len(nums)-1))
+
+    #   =============== Merge Sort ===============
+
+# def mergeSort(lis):
+#     if len(lis) == 1:
+#         return lis
+
+#     left = lis[:len(lis) // 2]
+#     right = lis[len(lis) // 2:]
+
+#     def merge(left, right):
+#         lf_i, rt_i, comb = 0, 0, []
+#         while lf_i < len(left) and rt_i < len(right):
+#             if left[lf_i] < right[rt_i]:
+#                 comb += [left[lf_i]]
+#                 lf_i += 1
+#             else:
+#                 comb += [right[rt_i]]
+#                 rt_i += 1
+#         comb += right[rt_i:] if lf_i == len(left) else left[lf_i:]
+#         return comb
+
+#     return merge(mergeSort(left), mergeSort(right)) 
+
+# print(mergeSort([2,5,4,1,7,3,4,2]))
+
+
+    #   =============== Insertion Sort ===============
 
 # def insertionSort(lis):
 #     for i in range(len(lis)-1):
