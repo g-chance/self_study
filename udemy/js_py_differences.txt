@@ -1,0 +1,17 @@
+variables:
+    -must declare variables with let or const
+        -const must be initialized (assigned value) and cannot be reassigned afterwards
+        -let doesn't have to be initialized (assign value) when declared, and can be resassigned
+    -if you forget to declare a variable, it will be auto declared in the global scope -- this is BAD practice
+
+functions:
+    -defined by: function()
+    -hoisted to the top of the script on execution
+    -you CAN access and change global+parent scope variables from within a function (not the other way around), but it is BAD practice
+        -a function that does NOT change global variables and only works with variables within it's scope is a 'pure' function
+        -declaring a variable with the same name inside the function as a global variable will prevent the global variable from being
+            overwritten (this is more like python). These are called 'Shadowed Variables'
+
+syntax:
+    -expressions end with a semicolon
+    -no semicolon necessary after a statement(ie. functions, loops)
