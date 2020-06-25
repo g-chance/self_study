@@ -61,7 +61,30 @@ class BinarySearchTree:
             ans.append(node.value)
             queue += [node.left, node.right]
         return self.breadthFirstSearchRecursive(queue, ans)
+    
+    def depthFirstSearchInorder(self, node, ans):
+        if node.left:
+            self.depthFirstSearchInorder(node.left, ans)
+        ans.append(node.value)
+        if node.right:
+            self.depthFirstSearchInorder(node.right, ans)
+        return ans
 
+    def depthFirstSearchPreorder(self, node, ans):
+        ans.append(node.value)
+        if node.left:
+            self.depthFirstSearchPreorder(node.left, ans)
+        if node.right:
+            self.depthFirstSearchPreorder(node.right, ans)
+        return ans
+    
+    def depthFirstSearchPostorder(self, node, ans):
+        if node.left:
+            self.depthFirstSearchPostorder(node.left, ans)
+        if node.right:
+            self.depthFirstSearchPostorder(node.right, ans)
+        ans.append(node.value)
+        return ans
     
     # def remove(self, value):
 
@@ -123,3 +146,6 @@ print(tree.lookup(4))
 
 print(tree.breadthFirstSearchIterative())
 print(tree.breadthFirstSearchRecursive(deque([tree.root]), []))
+print(tree.depthFirstSearchInorder(tree.root, []))
+print(tree.depthFirstSearchPreorder(tree.root, []))
+print(tree.depthFirstSearchPostorder(tree.root, []))
