@@ -15,3 +15,9 @@ functions:
 syntax:
     -expressions end with a semicolon
     -no semicolon necessary after a statement(ie. functions, loops)
+
+type conversion:
+    -js makes assumptions about what you intended and implicitly converts data types to avoid errors (ie. if you try to 
+        add a string and a number, js will convert the number to a string and concatenate them)
+    -to explicitly convert data a number, use the parse<NumberType>(Data) function or add a '+' in front of the string
+    -to explicitly convert data to a string, use the <Data>.toString() method

@@ -1,3 +1,5 @@
+from collections import deque
+
 class Node:
     def __init__(self, value):
         self.left = None
@@ -26,7 +28,7 @@ class BinarySearchTree:
             else:
                 runner = runner.left
 
-    def lookup(self,value):
+    def lookup(self, value):
         runner = self.root
         while runner != None:
             if value == runner.value:
@@ -37,7 +39,31 @@ class BinarySearchTree:
                 runner = runner.left
         return None
     
-    def remove(self, value):
+    def breadthFirstSearchIterative(self):
+        runner = self.root
+        ans, queue = [], deque()
+        
+        queue.append(runner)
+
+        while queue:
+            node = queue.popleft()
+            if node:
+                ans.append(node.value)
+                queue += [node.left, node.right]
+        return ans
+    
+    def breadthFirstSearchRecursive(self, queue, ans):
+        if not queue:
+            return ans
+        
+        node = queue.popleft()
+        if node:
+            ans.append(node.value)
+            queue += [node.left, node.right]
+        return self.breadthFirstSearchRecursive(queue, ans)
+
+    
+    # def remove(self, value):
 
     # All sorts of wrong -- try again
         # runner = self.root
@@ -80,34 +106,20 @@ tree.insert(6)
 tree.insert(20)
 tree.insert(170)
 tree.insert(15)
-# tree.insert(1)
-# tree.insert(169)
-# tree.insert(171)
-# tree.insert(167)
-# tree.insert(168)
+tree.insert(1)
 
 print(tree)
+
 finder = tree.root
-# print(finder.value)
-# print(finder.left.value)
-# print(finder.left.left.value)
-# print(finder.left.right.value)
-# print(finder.right.value)
-# print(finder.right.left.value)
-# print(finder.right.right.value)
+print(finder.value)
+print(finder.left.value)
+print(finder.left.left.value)
+print(finder.left.right.value)
+print(finder.right.value)
+print(finder.right.left.value)
+print(finder.right.right.value)
 
-# print(tree.lookup(170).right)
-gawl = tree.lookup(4)
+print(tree.lookup(4))
 
-# print(tree.remove(20))
-
-# print(finder.value)
-# print(finder.left.value)
-# print(finder.left.right.value)
-# print(finder.left.left)
-
-# print(finder.right.value)
-# print(finder.right.right.value)
-# print(finder.right.left.value)
-# print(finder.right.right.left.value)
-# print(finder.right.right.left.left.value)
+print(tree.breadthFirstSearchIterative())
+print(tree.breadthFirstSearchRecursive(deque([tree.root]), []))

@@ -1,4 +1,65 @@
+#   ==================== Searching ====================
 
+    #   ==================== BFS ====================
+
+
+
+#   ==================== Graphs ====================
+
+# # Implemented as Adjacency List
+# class Graph:
+#     def __init__(self):
+#         self.numberOfNodes = 0
+#         self.adjacencyList = {}
+    
+#     def addVertex(self, node):
+#         self.adjacencyList[node] = []
+#         self.numberOfNodes += 1
+#         return self
+    
+#     def addEdge(self, node1, node2):
+#         # Undirected
+#         self.adjacencyList[node1].append(node2)
+#         self.adjacencyList[node2].append(node1)
+#         return self
+    
+#     def showConnections(self):
+#         return self
+
+# myGraph = Graph()
+# myGraph.addVertex(0)
+# myGraph.addVertex(1)
+# myGraph.addVertex(2)
+# myGraph.addEdge(0,1)
+# myGraph.addEdge(2,1)
+
+# print(myGraph.adjacencyList)
+
+
+#   ==================== Recursion ====================
+
+# def factorial(num):
+#     if num == 1:
+#         return num
+#     return factorial(num - 1) * num
+
+# print(factorial(5))
+
+# def func(num):
+#     num -= 1
+#     if num == 0:
+#         return [0]
+#     res = []
+#     for i in range (1,num,2):
+#         for j in func(i):
+#             print('in func loop', "j", j)
+#             # for k in func(num - i):
+#             root = [1]
+#             root += [['left', j]]
+#             res += root
+#     return res
+
+# print(func(5))
 
 
 #   ==================== Collections - Counter module ====================
@@ -26,21 +87,21 @@
 
 #   ==================== Heap Practice ====================
 
-        #   =============== heapq module ===============
-import heapq as h
+    #   =============== heapq module ===============
+# import heapq as h
 
-k = 2
-lis = [2,5,4,7,8,9,3,4]
-h.heapify(lis)
+# k = 2
+# lis = [2,5,4,7,8,9,3,4]
+# h.heapify(lis)
 
-print(lis)
+# print(lis)
 
-for i in range(k-1):
-    h.heappop(lis)
+# for i in range(k-1):
+#     h.heappop(lis)
 
-print(lis[0])
+# print(lis[0])
 
-        #   =============== Attempt at implementing my own max-heap ===============
+    #   =============== Attempt at implementing my own max-heap ===============
 
 # class MinHeap:
 #     def __init__(self):
