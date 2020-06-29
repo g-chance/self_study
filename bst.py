@@ -27,6 +27,7 @@ class BinarySearchTree:
                 return self
             else:
                 runner = runner.left
+        return self
 
     def lookup(self, value):
         runner = self.root
@@ -86,6 +87,16 @@ class BinarySearchTree:
         ans.append(node.value)
         return ans
     
+    def validate(self, queue):
+        if not queue:
+            return True
+        node = queue.popleft()
+        if node:
+            if node.left and node.left.value > node.value or node.right and node.right.value < node.value:
+                return False
+            queue += [node.left, node.right]
+        return self.validate(queue)
+    
     # def remove(self, value):
 
     # All sorts of wrong -- try again
@@ -142,10 +153,12 @@ print(finder.right.value)
 print(finder.right.left.value)
 print(finder.right.right.value)
 
-print(tree.lookup(4))
+print('Lookup 4', tree.lookup(4))
 
-print(tree.breadthFirstSearchIterative())
-print(tree.breadthFirstSearchRecursive(deque([tree.root]), []))
-print(tree.depthFirstSearchInorder(tree.root, []))
-print(tree.depthFirstSearchPreorder(tree.root, []))
-print(tree.depthFirstSearchPostorder(tree.root, []))
+print('BFS It', tree.breadthFirstSearchIterative())
+print('BFS Re', tree.breadthFirstSearchRecursive(deque([tree.root]), []))
+print('DFS In', tree.depthFirstSearchInorder(tree.root, []))
+print('DFS Pre', tree.depthFirstSearchPreorder(tree.root, []))
+print('DFS Post', tree.depthFirstSearchPostorder(tree.root, []))
+
+print(tree.validate(deque([tree.root])))

@@ -1,10 +1,8 @@
-#   ==================== Searching ====================
-
-    #   ==================== BFS ====================
 
 
+#   ==================== Graphs + BFS/DFS ====================
 
-#   ==================== Graphs ====================
+# from collections import deque
 
 # # Implemented as Adjacency List
 # class Graph:
@@ -23,6 +21,34 @@
 #         self.adjacencyList[node2].append(node1)
 #         return self
     
+#     def breadthFirstSearch(self, ver):
+#         visited = {key: False for key in self.adjacencyList}
+#         ans, queue = [], deque([ver])
+#         visited[ver] = True
+#         while queue:
+#             ver = queue.popleft()
+#             ans.append(ver)
+#             for neighbor in self.adjacencyList[ver]:
+#                 if visited[neighbor] == False:
+#                     queue.append(neighbor)
+#                     visited[neighbor] = True
+#         return ans
+    
+#     def depthFirstSearch(self, ver):
+#         visited = {key: False for key in self.adjacencyList}
+#         ans = []
+#         visited[ver] = True
+
+#         def goDeeper(ver):
+#             for neighbor in self.adjacencyList[ver]:
+#                 if visited[neighbor] == False:
+#                     visited[neighbor] = True
+#                     goDeeper(neighbor)
+#             ans.append(ver)
+        
+#         goDeeper(ver)
+#         return ans
+    
 #     def showConnections(self):
 #         return self
 
@@ -30,10 +56,16 @@
 # myGraph.addVertex(0)
 # myGraph.addVertex(1)
 # myGraph.addVertex(2)
-# myGraph.addEdge(0,1)
-# myGraph.addEdge(2,1)
+# myGraph.addVertex(3)
+# myGraph.addEdge(0, 1) 
+# myGraph.addEdge(0, 2) 
+# myGraph.addEdge(1, 2) 
+# myGraph.addEdge(2, 3) 
+
 
 # print(myGraph.adjacencyList)
+# print(myGraph.breadthFirstSearch(next(iter(myGraph.adjacencyList))))
+# print(myGraph.depthFirstSearch(next(iter(myGraph.adjacencyList))))
 
 
 #   ==================== Recursion ====================
