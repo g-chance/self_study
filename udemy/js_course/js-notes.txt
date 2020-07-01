@@ -1,0 +1,6 @@
+HTML:
+    -add script tags to the head of and html document with the 'defer' attribute. This ensures that the scripts are loaded
+     at the same time as the html document, but isn't executed until after the html document is parsed
+        -to explicitly load a script BEFORE html is parsed, use the async attribute. Note that this does NOT guarantee
+         the order of script execution(so don't use with scripts that are dependent on other scripts)
+        - defer and async won't have any effect with in-line scripts

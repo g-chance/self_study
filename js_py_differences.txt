@@ -21,3 +21,10 @@ type conversion:
         add a string and a number, js will convert the number to a string and concatenate them)
     -to explicitly convert data a number, use the parse<NumberType>(Data) function or add a '+' in front of the string
     -to explicitly convert data to a string, use the <Data>.toString() method
+
+objects:
+    -similar to dictionaries
+    -use '.'(dot) notation to access keys(also called properties)/values (ie. object.key will return the value stored in key)
+
+built-ins:
+    -python: type(<data>) == js: typeof <data>
