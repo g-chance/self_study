@@ -1,3 +1,19 @@
+#   ==================== Dynamic Programming / Memoization ====================
+
+calcs = [0]
+cache = {}
+def fib(n):
+    calcs[0] += 1
+    if n in cache:
+        return cache[n]
+    if n < 2:
+        cache[n] = n
+        return n
+    cache[n] = fib(n-1) + fib(n-2)
+    return cache[n]
+
+print(fib(30))
+print(calcs)
 
 
 #   ==================== Graphs + BFS/DFS ====================
