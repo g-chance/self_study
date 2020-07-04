@@ -1,3 +1,22 @@
+#   ==================== any() and all() built-ins ====================
+
+
+iterators = [5,5]
+while all(i > 0 for i in iterators):
+    print('all while loop', iterators)
+    iterators[0] -= 1
+iterators = [5,5]
+while any(i > 0 for i in iterators):
+    print('any while loop', iterators)
+    iterators[0] -= 1
+    iterators[1] -= 2
+print(i > 0 for i in [5,5])
+print(any(i>0 for i in [0,0]))
+print(all([5==5,5==6]))
+print(any([5==5,5==6]))
+print([5==5, 5==6])
+
+
 #   ==================== Dynamic Programming / Memoization ====================
 
 calcs = [0]
