@@ -4,3 +4,11 @@ HTML:
         -to explicitly load a script BEFORE html is parsed, use the async attribute. Note that this does NOT guarantee
          the order of script execution(so don't use with scripts that are dependent on other scripts)
         - defer and async won't have any effect with in-line scripts
+Boolean Tricks:
+    -using a double bang(!!) will convert any datatype into a true boolean,
+    ie. (0 normally yields a 'falsy' value, but !!0 would actually convert it to 'false', just as !0 converts it to 'true)
+    -can use the ||(or) operator to assign values to variables when you may be uncertain of whether a value you're
+    assigning to the variable will be truthy (ie. a user input that may an empty string)
+        -can use the &&(and) operator to do the opposite (assign a different value to a variable only if the first value
+        is truthy, this makes the most sense when dealing with actual boolean values, rather than falsy / truthy ones.
+        ie. (let isLoggedIn = true; variable = isLoggedIn && 'Max')
