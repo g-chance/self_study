@@ -39,3 +39,6 @@ conditionals:
   -elif(python) == else if(js)
   -TRUTHY / FALSY
     -in js, empty objects ARE evaluated as true (in python they are not)
+  -TERNARY
+    -in js, written as <boolean ? value1 : value1> (which translates to `if boolean then value1 else value2)
+    -in py, writte as <value1 if boolean else value2>
