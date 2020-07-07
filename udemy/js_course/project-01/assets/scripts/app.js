@@ -18,35 +18,49 @@ function writeToLog(opId, prevRes, opNum, newRes) {
     console.log(log)
 }
 
+function calculateResult(calcType) {
+    if (
+        calcType !== 'ADD' && calcType !== 'SUBTRACT' 
+        && calcType !== 'MULTIPLY' && calcType !== 'DIVIDE'
+        || !parseInt(userInput.value)
+    ) {
+        return;
+    }
+
+    let init = cur;
+    let mathOperator;
+    if (calcType === 'ADD') {
+        cur += parseInt(userInput.value);
+        mathOperator = '+';
+    } else if (calcType === 'SUBTRACT') {
+        cur -= parseInt(userInput.value);
+        mathOperator = '-';
+    } else if (calcType === 'MULTIPLY') {
+        cur *= parseInt(userInput.value);
+        mathOperator = '*';
+    } else if (calcType === 'DIVIDE') {
+        cur /= parseInt(userInput.value);
+        mathOperator = '/';
+    }
+
+    createAndWriteLog(mathOperator, init, userInput.value)
+    writeToLog(calcType, init, userInput.value, cur)
+}
+
 function add() {
-    let init = cur
-    cur = cur + parseInt(userInput.value);
-    createAndWriteLog('+', init, userInput.value)
-    writeToLog('ADD', init, userInput.value, cur)
+    calculateResult('ADD');
 }
 
 function subtract() {
-    let init = cur
-    let calcDesc = `(${cur} - ${userInput.value})`
-    cur = cur - parseInt(userInput.value);
-    outputResult(cur, calcDesc)
-    writeToLog('SUB', init, userInput.value, cur)
+    calculateResult('SUBTRACT');
 }
 
 function multiply() {
-    let init = cur
-    let calcDesc = `(${cur} * ${userInput.value})`
-    cur = cur * parseInt(userInput.value);
-    outputResult(cur, calcDesc)
-    writeToLog('MUL', init, userInput.value, cur)
+    calculateResult('MULTIPLY');
 }
 
 function divide() {
-    let init = cur
-    let calcDesc = `(${cur} / ${userInput.value})`
-    cur = cur / parseInt(userInput.value);
-    outputResult(cur, calcDesc)
-    writeToLog('DIV', init, userInput.value, cur)
+    calculateResult('DIVIDE');
 }
 
 addBtn.addEventListener(`click`, add);

@@ -28,3 +28,14 @@ objects:
 
 built-ins:
     -python: type(<data>) == js: typeof <data>
+
+conditionals:
+  -COMPARISON OPERATORS:
+    -in js, the '===' operator exists to compare whether value AND type are equal, because the '==' operator could compare
+    equal when comparing a number to a string because of js's implicit type conversion (ie. 2 == "2")
+    -a bang(!) in js essentially replaces the 'not' keyword in python
+    -different objects in js will NEVER compare equal, whereas in python they can(using ==)
+    -&&(js) == and(py); ||(js) == or(py)
+  -elif(python) == else if(js)
+  -TRUTHY / FALSY
+    -in js, empty objects ARE evaluated as true (in python they are not)
