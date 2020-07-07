@@ -1,38 +1,41 @@
+
+
 #   ==================== any() and all() built-ins ====================
 
-
-iterators = [5,5]
-while all(i > 0 for i in iterators):
-    print('all while loop', iterators)
-    iterators[0] -= 1
-iterators = [5,5]
-while any(i > 0 for i in iterators):
-    print('any while loop', iterators)
-    iterators[0] -= 1
-    iterators[1] -= 2
-print(i > 0 for i in [5,5])
-print(any(i>0 for i in [0,0]))
-print(all([5==5,5==6]))
-print(any([5==5,5==6]))
-print([5==5, 5==6])
+# iterators = [5,5]
+# while all(i > 0 for i in iterators):
+#     print('all while loop', iterators)
+#     iterators[0] -= 1
+# iterators = [5,5]
+# while any(i > 0 for i in iterators):
+#     print('any while loop', iterators)
+#     iterators[0] -= 1
+#     iterators[1] -= 2
+# print(i > 0 for i in [5,5])
+# print(any(i>0 for i in [0,0]))
+# print(all([5==5,5==6]))
+# print(any([5==5,5==6]))
+# print([5==5, 5==6])
+# print(all([5, 6, 7]))
+# print(all([0, 0, 0]))
 
 
 #   ==================== Dynamic Programming / Memoization ====================
 
-calcs = [0]
-cache = {}
-def fib(n):
-    calcs[0] += 1
-    if n in cache:
-        return cache[n]
-    if n < 2:
-        cache[n] = n
-        return n
-    cache[n] = fib(n-1) + fib(n-2)
-    return cache[n]
+# calcs = [0]
+# cache = {}
+# def fib(n):
+#     calcs[0] += 1
+#     if n in cache:
+#         return cache[n]
+#     if n < 2:
+#         cache[n] = n
+#         return n
+#     cache[n] = fib(n-1) + fib(n-2)
+#     return cache[n]
 
-print(fib(30))
-print(calcs)
+# print(fib(30))
+# print(calcs)
 
 
 #   ==================== Graphs + BFS/DFS ====================
