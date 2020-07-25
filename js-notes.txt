@@ -12,3 +12,14 @@ Boolean Tricks:
         -can use the &&(and) operator to do the opposite (assign a different value to a variable only if the first value
         is truthy, this makes the most sense when dealing with actual boolean values, rather than falsy / truthy ones.
         ie. (let isLoggedIn = true; variable = isLoggedIn && 'Max')
+Labeled Statements:
+    -you can label a statement in js so that you can refer to it letter. This is commonly used with loops, so that you can
+    break out of a loop even if the break statement is being used somewhere other than the loop itself.
+    ie. the code below will break the outer loop from the inner loop.
+        labeledOuterLoop: for (const num of nums) {
+            for (const letter of letters) {
+                if (num == 0) {
+                    break labeledOuterLoop
+                }
+            }
+        }

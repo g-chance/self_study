@@ -42,3 +42,21 @@ conditionals:
   -TERNARY
     -in js, written as <boolean ? value1 : value1> (which translates to `if boolean then value1 else value2)
     -in py, writte as <value1 if boolean else value2>
+
+loops:
+  -for loop
+    js: for(let i=0; i<5; i++)
+    py: for i in range(5)
+  -for-of loop (iterate over all elements of an array)
+    js: for(const num of nums)
+    py: for num in nums
+  -for-in loop (iterate over all keys in a dictionary)
+    js: for(const key in dict)
+    py: for key in dict
+  -while loop (no major differences)
+  -do-while loop (only in js - execute code BEFORE checking condition, 
+    ie. the below code will log 3 whereas a normal while loop wouldn't
+        j = 3; 
+        do { 
+          console.log(j);
+        } while (j < 3);
