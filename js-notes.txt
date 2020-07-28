@@ -23,3 +23,7 @@ Labeled Statements:
                 }
             }
         }
+Strict Mode:
+    -add the string "use strict" at the beginning of any block (including the global scope) to enable Strict Mode
+        -Strict Mode makes js less forgiving to help avoid unintended syntax errors (ie. if you forget to declare
+        a variable with let or const, js will NOT automatically add var under the hood if strict mode is enabled)
