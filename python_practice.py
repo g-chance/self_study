@@ -1,3 +1,12 @@
+name = 'butts'
+butt = name
+print(id(name), id(butt))
+print(id(butt), id(name))
+print(butt, name)
+
+x = [2]
+y = [2]
+print(x == y)
 
 
 #   ==================== any() and all() built-ins ====================
