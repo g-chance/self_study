@@ -1,5 +1,5 @@
+from .models import Book, BookNumber, Character, Author
 from rest_framework import serializers
-from .models import Book, Character, Author
 
 class CharacterSerializer(serializers.ModelSerializer):
     class Meta:
@@ -23,8 +23,7 @@ class BookSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Book
-        fields = ['id', 'title', 'desc', 'price', 'published',
-            'is_published', 'number', 'characters', 'authors']
+        fields = ['id', 'title', 'desc', 'price', 'published', 'is_published', 'number', 'characters', 'authors']
 
 class BookMiniSerializer(serializers.ModelSerializer):
 
