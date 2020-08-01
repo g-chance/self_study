@@ -1,19 +1,71 @@
 #   ==================== Text Justification ====================
 
+class UghHereWeGo:
+    def __init__(self, text, line_length):
+        self.text = text
+        self.line_length = line_length
+
+    def getUglyNum(self, fr, to):
+        text_len = 0
+        for i in range(fr, to):
+            text_len += len(self.text[i])
+            if i != to-1:
+                text_len += 1
+        if text_len <= self.line_length:
+            return (self.line_length - text_len) ** 2
+        return 2**32
+    
+    def justifyText(self):
+        # if i == len(self.text):
+        #     return 0
+        # testing = 2**32
+        # for x in range(i + 1, len(self.text) + 1):
+        #     # for j in range(x+1, len(self.text) + 1):
+        #     print('x', x)
+        #     temp = self.getUglyNum(i, x)
+        #     temp += self.findUglyNum(x)
+        #     testing = min(testing, temp)
+        # print(testing)
+        # return testing
+
+        scores = [0]*(len(self.text) + 1)
+        pointers = [0]*(len(self.text) + 1)
+        print(scores)
+        for i in range(len(self.text)-1,-1,-1):
+            temp = 2**32
+            for j in range(i+1, len(self.text)+1):
+                temp2 = self.getUglyNum(i, j) + scores[j]
+                if temp2 < temp:
+                    # temp = temp2 + scores[j]
+                    scores[i] = temp2
+                    pointers[i] = j
+        print(scores)
+        print(pointers)
+
+        i = 0
+        ans = ''
+        while i < len(self.text):
+            ans += ' '.join(self.text[i:pointers[i]]) + '\n'
+            i = pointers[i]
+        return ans
+
+justify = UghHereWeGo('The cat jumped over the fence'.split(), 10)
+
+print(justify.justifyText())
 
 #   ==================== Max Sub Array ====================
 
-myArr = [5, -4, 8, -10, -2, 4, -3, 2, 7, -8, 3, -5, 3]
+# myArr = [5, -4, 8, -10, -2, 4, -3, 2, 7, -8, 3, -5, 3]
 
-ma = 0
-su = 0
+# ma = 0
+# su = 0
 
-for i in range(len(myArr)):
-    su += myArr[i]
-    ma = max(ma, su)
-    if su < 0:
-        su = 0
-print(ma)
+# for i in range(len(myArr)):
+#     su += myArr[i]
+#     ma = max(ma, su)
+#     if su < 0:
+#         su = 0
+# print(ma)
 
 #   ==================== Aircraft Spacing ====================
 

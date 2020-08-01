@@ -1,9 +1,13 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User as AdminUser
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 # Create your models here.
+
+class User(AdminUser):
+    hair_color = models.CharField(max_length=30)
+
 class Movie(models.Model):
     title = models.CharField(max_length=32)
     desc = models.TextField(max_length=256)
@@ -11,7 +15,7 @@ class Movie(models.Model):
     def no_ratings(self):
         ratings = Rating.objects.filter(movie=self)
         return len(ratings)
-    
+
     def avg_rating(self):
         sum = 0
         ratings = Rating.objects.filter(movie=self)

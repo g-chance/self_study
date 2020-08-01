@@ -1,11 +1,11 @@
 from django.shortcuts import render
+# from django.contrib.auth.models import User
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from django.contrib.auth.models import User
-from .models import Movie, Rating
+from .models import Movie, Rating, User
 from .serializers import MovieSerializer, RatingSerializer, UserSerializer
 
 # Create your views here.
@@ -22,7 +22,7 @@ class MovieViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['POST'])
     def rate_movie(self, request, pk=None):
         if 'stars' in request.data:
-            
+
             print(request.data)
             movie = Movie.objects.get(id=pk)
             stars = request.data['stars']
