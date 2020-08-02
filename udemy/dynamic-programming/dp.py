@@ -15,29 +15,29 @@ class UghHereWeGo:
             return (self.line_length - text_len) ** 2
         return 2**32
     
-    def justifyText(self):
-        # if i == len(self.text):
-        #     return 0
-        # testing = 2**32
-        # for x in range(i + 1, len(self.text) + 1):
-        #     # for j in range(x+1, len(self.text) + 1):
-        #     print('x', x)
-        #     temp = self.getUglyNum(i, x)
-        #     temp += self.findUglyNum(x)
-        #     testing = min(testing, temp)
-        # print(testing)
-        # return testing
+    def findUglyNum(self, i):
+        if i == len(self.text):
+            return 0
+        testing = 2**32
+        for x in range(i + 1, len(self.text) + 1):
+            # for j in range(x+1, len(self.text) + 1):
+            print('x', x)
+            temp = self.getUglyNum(i, x)
+            temp += self.findUglyNum(x)
+            testing = min(testing, temp)
+        print(testing)
+        return testing
 
+    def justifyText(self):
         scores = [0]*(len(self.text) + 1)
         pointers = [0]*(len(self.text) + 1)
-        print(scores)
         for i in range(len(self.text)-1,-1,-1):
-            temp = 2**32
+            score = 2**32
             for j in range(i+1, len(self.text)+1):
-                temp2 = self.getUglyNum(i, j) + scores[j]
-                if temp2 < temp:
-                    # temp = temp2 + scores[j]
-                    scores[i] = temp2
+                curr_score = self.getUglyNum(i, j) + scores[j]
+                if curr_score < score:
+                    # score = curr_score + scores[j]
+                    scores[i] = curr_score
                     pointers[i] = j
         print(scores)
         print(pointers)
@@ -49,9 +49,8 @@ class UghHereWeGo:
             i = pointers[i]
         return ans
 
-justify = UghHereWeGo('The cat jumped over the fence'.split(), 10)
-
-print(justify.justifyText())
+sentence = UghHereWeGo('The cat jumped over the fence'.split(), 10)
+print(sentence.justifyText())
 
 #   ==================== Max Sub Array ====================
 
