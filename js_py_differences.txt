@@ -11,6 +11,14 @@ functions:
         -a function that does NOT change global variables and only works with variables within it's scope is a 'pure' function
         -declaring a variable with the same name inside the function as a global variable will prevent the global variable from being
             overwritten (this is more like python). These are called 'Shadowed Variables'
+    -DEFAULT VALUES:
+      -in js, parameters with default values can be placed before those without them
+    -passing an arbitrary number of arguments to a function:
+      -in python, you accept arbitrary positional arguments with a parameter preceded by one asterisk following all defined positional
+      arguments (ie. *args), and arbitrary keyword arguments with a parameter preceded by 2 asterisks following all positional arguments
+      and defined keyword arguments (ie. **kwargs)
+      -in js, you accept ALL arbitrary arguments with the rest operator, which must be the last parameter preceded by a ... (ie ...args),
+      note: this will place the arguments into an array for use within the function body
 
 syntax:
     -expressions end with a semicolon
