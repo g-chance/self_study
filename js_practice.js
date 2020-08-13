@@ -1,3 +1,14 @@
+//   ==================== Spread / Destructuring ====================
+
+let myArr = [1,2,3,4]
+let [a, , ...c] = myArr
+console.log(a,c)
+
+let myObj = {a:'butts', 2:'farts', 3:3, 4:4}
+let {a: newName, ...desctructuredObj} = myObj
+let {2: newName2} = myObj
+console.log(newName, desctructuredObj)
+console.log(newName2)
 
 
 //   ==================== Ternary Expressions ====================
