@@ -34,7 +34,6 @@ Functions:
     -if an argument with a value of undefined is passed to a function parameter which has a default value, the default
     value will be used instead
         -it is still a best practice to add parameters with default values last
-    -the bind() method is available to functions that you want to pass as arguments (ie. callbacks) to other functions
-    with pre-configured arguments themselves. Otherwise, you aren't normally able to provide the callback function with any
-    arguments prior to it entering the body of the function in which it itself was passed as an argument. Also, this is super
-    annoying to try and write because it sounds way more complex than it actually is..
+    -the bind() method is available to functions that you want to pre-configure with arguments without actually calling them. 
+    In this way, you can do things like pass the function itself as an argument (ie. as a callback) to another function, or 
+    add the function as an event listener, with pre-configured arguments.
