@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
-import Person from './Person/Person';
-import UserInput from './UserInput/UserInput'
-import UserOutput from './UserOutput/UserOutput'
-import Validation from './Validation/Validation'
-import Char from './Char/Char'
+// import Radium, { StyleRoot } from 'radium'
+// import Person from '../components/Persons/Person/Person';
+// import UserInput from '../components/Assignments/UserInput/UserInput'
+// import UserOutput from '../components/Assignments/UserOutput/UserOutput'
+// import Validation from '../components/Validation/Validation'
+// import Char from '../components/Assignments/Char/Char'
+import Cockpit from '../components/Cockpit/Cockpit'
+import Persons from '../components/Persons/Persons'
 
 const App = props => {
 
@@ -14,9 +17,9 @@ const App = props => {
       {id: 2, name: 'Manu', age: 29},
       {id: 3, name: 'Steph', age: 28},
     ],
-    otherState: 'some value',
-    usernames: ['Ana', 'Greg'],
+    // otherState: 'some value',
     showPersons: false,
+    // usernames: ['Ana', 'Greg'],
   });
 
   const [state, setState] = useState({
@@ -60,42 +63,24 @@ const App = props => {
     })
   }
 
-  const userNameChangeHandler = e => {
-    const unames = persons.usernames
-    unames[0] = e.target.value
-    setPersons({
-      ...persons, usernames: unames
-    })
-  }
-
   const togglePersonsHandler = () => {
     const doesShow = persons.showPersons;
     setPersons({...persons, showPersons: !doesShow})
   }
 
-  console.log(persons)
-
-  const style = {
-    backgroundColor: 'red',
-    font: 'inherit',
-    padding: '8px',
-    border: '5px solid blue',
-    cursor: 'pointer'
-  }
+  // console.log(persons)
 
   let people = null;
 
   if (persons.showPersons) {
     people = (
       <div>
-        {persons.persons.map( (person, i) => {
-          return <Person
-          key={person.id}
-          name={person.name}
-          age={person.age}
-          click={() => deletePersonHandler(i)}
-          change={e => nameChangedHandler(e, person.id)} />
-        })}
+        <Persons 
+          persons={persons.persons}
+          clicked={deletePersonHandler}
+          changed={nameChangedHandler}
+        />
+        {/* ===== Code before refactoring */}
         {/* <Person 
           name={persons.persons[0].name}
           age={persons.persons[0].age} 
@@ -109,53 +94,58 @@ const App = props => {
         </Person> */}
       </div> 
     );
+    // style.backgroundColor = 'red';
+    // style[':hover'] = {
+    //   backgroundColor: 'pink',
+    //   color: 'black'
+    // }
   }
 
-const textChangeHandler = e => {
-  let txt = state.text;
-  txt = e.target.value;
-  setState({...state, text: txt})
-}
+  let classes = [];
+  if (persons.persons.length <= 2) {
+    classes.push('red');
+  }
+  if (persons.persons.length <= 1) {
+    classes.push('bold');
+  }
 
-const deleteCharHandler = (i) => {
-  const charList = state.text.split('')
-  charList.splice(i, 1)
-  const charStr = charList.join('')
-  setState({...state, text: charStr})
-}
+// ===== Part of Assignment
+
+// const userNameChangeHandler = e => {
+//   const unames = persons.usernames
+//   unames[0] = e.target.value
+//   setPersons({
+//     ...persons, usernames: unames
+//   })
+// }
+
+// const textChangeHandler = e => {
+//   let txt = state.text;
+//   txt = e.target.value;
+//   setState({...state, text: txt})
+// }
+
+// const deleteCharHandler = (i) => {
+//   const charList = state.text.split('')
+//   charList.splice(i, 1)
+//   const charStr = charList.join('')
+//   setState({...state, text: charStr})
+// }
 
   return (
+    // <StyleRoot>
     <div className="App">
-      <h1>Hi, I'm a React App</h1>
-
-{/* Lists and Conditionals assignment */}
-      <input type="text" onChange={textChangeHandler} value={state.text}/>
-      <p>{state.text.length}</p>
-      <Validation length={state.text.length} />
-      {
-        state.text.split('').map((c, i) => {
-          return (
-            <Char key={i} 
-              char={c} 
-              click={() => deleteCharHandler(i)}
-            />
-          )
-        })
-      }
-
-      <UserOutput name={persons.usernames[0]}/>
-      <UserInput name={persons.usernames[0]} change={userNameChangeHandler}/>
-      <UserOutput name={persons.usernames[1]}/>
-      <button
-        style={style}
-        onClick={togglePersonsHandler}
-      > Toggle Persons
-      </button>
-{/* BELOW ARE 2 WAYS OF RENDERING CONDITIONAL CODE */}
-  {/* 1. (this is the best practice -- see people variable above) */}
+      <p className={classes.join(' ')}>This is really working!</p>
+      <Cockpit
+        showPersons={persons.showPersons}
+        clicked={togglePersonsHandler}
+        // style={style}
+      />
+      {/* ===== BELOW ARE 2 WAYS OF RENDERING CONDITIONAL CODE */}
+      {/* ===== 1. (this is the best practice -- see people variable above) */}
       {people}
-
-  {/* 2. */}
+      
+      {/* ===== 2. */}
       {/* { 
         persons.showPersons ?
           <div>
@@ -173,14 +163,36 @@ const deleteCharHandler = (i) => {
           </div> 
         : null
       } */}
+
+      {/* ===== Assignments ===== */}
+      {/* <input type="text" onChange={textChangeHandler} value={state.text}/>
+      <p>{state.text.length}</p>
+      <Validation length={state.text.length} />
+      {
+        state.text.split('').map((c, i) => {
+          return (
+            <Char key={i} 
+              char={c} 
+              click={() => deleteCharHandler(i)}
+            />
+          )
+        })
+      }
+      <UserOutput name={persons.usernames[0]}/>
+      <UserInput name={persons.usernames[0]} change={userNameChangeHandler}/>
+      <UserOutput name={persons.usernames[1]}/> */}
+
     </div>
+    // </StyleRoot>
   );
-  // // The below code is what the jsx above is compiled to
+  // ===== The below code is what the jsx above is compiled to =====
   //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hi, I\'m a React App!!!'))
 }
 
 export default App;
 
+
+// ===== Example of state in a class component =====
 // state = {
 //   persons: [
 //     {name: 'Max', age: 28},
