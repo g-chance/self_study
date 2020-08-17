@@ -9,3 +9,7 @@
 .bold {
   font-weight: bold;
 }
+
+.App .test {
+  color: purple
+}

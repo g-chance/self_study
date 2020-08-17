@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import classes from './App.css';
 // import Radium, { StyleRoot } from 'radium'
 // import Person from '../components/Persons/Person/Person';
 // import UserInput from '../components/Assignments/UserInput/UserInput'
@@ -17,7 +17,6 @@ const App = props => {
       {id: 2, name: 'Manu', age: 29},
       {id: 3, name: 'Steph', age: 28},
     ],
-    // otherState: 'some value',
     showPersons: false,
     // usernames: ['Ana', 'Greg'],
   });
@@ -25,21 +24,6 @@ const App = props => {
   const [state, setState] = useState({
     text: ''
   })
-
-  console.log(persons)
-
-  // const switchNameHandler = name => {
-  //   const [boomba, ...flautas] = persons.persons
-  //   boomba.name = name
-  //   setPersons({
-  //     ...persons, persons: [boomba].concat(flautas)
-  //     // persons: [
-  //     //   {name: 'Maximillian', age: 28},
-  //     //   {name: 'Manu', age: 29},
-  //     //   {name: 'Steph', age: 28},
-  //     // ]
-  //   })
-  // }
 
   const deletePersonHandler = (i) => {
     const people = [...persons.persons];
@@ -68,75 +52,73 @@ const App = props => {
     setPersons({...persons, showPersons: !doesShow})
   }
 
-  // console.log(persons)
-
   let people = null;
 
   if (persons.showPersons) {
-    people = (
-      <div>
+    people = 
         <Persons 
           persons={persons.persons}
           clicked={deletePersonHandler}
           changed={nameChangedHandler}
-        />
+        />;
         {/* ===== Code before refactoring */}
-        {/* <Person 
-          name={persons.persons[0].name}
-          age={persons.persons[0].age} 
-          click={switchNameHandler.bind(this, 'Butts')}
-          />
-        <Person
-          name={persons.persons[1].name}
-          age={persons.persons[1].age} 
-          changed={nameChangedHandler}
-          > My Hobbies: Racing
-        </Person> */}
-      </div> 
-    );
-    // style.backgroundColor = 'red';
-    // style[':hover'] = {
-    //   backgroundColor: 'pink',
-    //   color: 'black'
-    // }
+      // <div>
+      //   <Person 
+      //     name={persons.persons[0].name}
+      //     age={persons.persons[0].age} 
+      //     click={switchNameHandler.bind(this, 'Butts')}
+      //     />
+      //   <Person
+      //     name={persons.persons[1].name}
+      //     age={persons.persons[1].age} 
+      //     changed={nameChangedHandler}
+      //     > My Hobbies: Racing
+      //   </Person>
+      // </div> 
   }
 
-  let classes = [];
-  if (persons.persons.length <= 2) {
-    classes.push('red');
-  }
-  if (persons.persons.length <= 1) {
-    classes.push('bold');
-  }
+  // const switchNameHandler = name => {
+  //   const [boomba, ...flautas] = persons.persons
+  //   boomba.name = name
+  //   setPersons({
+  //     ...persons, persons: [boomba].concat(flautas)
+  //     // persons: [
+  //     //   {name: 'Maximillian', age: 28},
+  //     //   {name: 'Manu', age: 29},
+  //     //   {name: 'Steph', age: 28},
+  //     // ]
+  //   })
+  // }
 
-// ===== Part of Assignment
+  // ===== Part of Assignment =====
 
-// const userNameChangeHandler = e => {
-//   const unames = persons.usernames
-//   unames[0] = e.target.value
-//   setPersons({
-//     ...persons, usernames: unames
-//   })
-// }
+  // const userNameChangeHandler = e => {
+  //   const unames = persons.usernames
+  //   unames[0] = e.target.value
+  //   setPersons({
+  //     ...persons, usernames: unames
+  //   })
+  // }
 
-// const textChangeHandler = e => {
-//   let txt = state.text;
-//   txt = e.target.value;
-//   setState({...state, text: txt})
-// }
+  // const textChangeHandler = e => {
+  //   let txt = state.text;
+  //   txt = e.target.value;
+  //   setState({...state, text: txt})
+  // }
 
-// const deleteCharHandler = (i) => {
-//   const charList = state.text.split('')
-//   charList.splice(i, 1)
-//   const charStr = charList.join('')
-//   setState({...state, text: charStr})
-// }
+  // const deleteCharHandler = (i) => {
+  //   const charList = state.text.split('')
+  //   charList.splice(i, 1)
+  //   const charStr = charList.join('')
+  //   setState({...state, text: charStr})
+  // }
 
   return (
     // <StyleRoot>
-    <div className="App">
-      <p className={classes.join(' ')}>This is really working!</p>
+    <div className={classes.App}>
+      <p className={classes.test}>Paragraph style test</p>
       <Cockpit
+        persons={persons.persons}
         showPersons={persons.showPersons}
         clicked={togglePersonsHandler}
         // style={style}

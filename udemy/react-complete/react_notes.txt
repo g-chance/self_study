@@ -1,0 +1,16 @@
+CSS Modules
+    note: must be using react-scripts v2xx.. for higher for the below to work
+        -create css files with the .module.css extension
+        -use the 'import classes from <filename>.module.css> to import
+    -see the 'more on css modules' section in react-complete course for more useful information
+
+Optimization:
+    UseEffect() =>
+        -sometimes it's a good idea to wrap the component in your component export with React.memo when using UseEffect
+        with functional components (ie. export default React.memo(<Component>)). This will prevent the UseEffect
+        Hook from triggering if nothing that the component renders actually changes (this is most relevant if UseEffect
+        would have been triggered by props changing, signaling something may have changed in a parent, but which is not
+        necessarily rendered in the component), because the previous state of the component will be memoized (yes 
+        memoized, like with dynamic programming), and therefore used again if nothing has changed.
+            -import to note: you should NOT do this unless you believe there are circumstances where you actually
+            wouldn't want the component to re-render as described above
