@@ -14,3 +14,8 @@ Optimization:
         memoized, like with dynamic programming), and therefore used again if nothing has changed.
             -import to note: you should NOT do this unless you believe there are circumstances where you actually
             wouldn't want the component to re-render as described above
+
+Planning an App:
+    1. Component Tree / Component Structure
+    2. Application state
+    3. Components vs. Containers (stateless vs. stateful components)
