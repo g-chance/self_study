@@ -16,3 +16,27 @@
 .Toolbar nav {
     height: 100%;
 }
+
+.Logo {
+    height: 80%;
+}
+
+@media (max-width: 499px) {
+    .DesktopOnly {
+        display: none;
+    }
+}
+
+.Toolbar Button div {
+    width: 40px;
+    height: 5px;
+    margin: 5px 0;
+    background-color: white;
+    z-index: 1000;
+}
+
+@media (min-width: 500px) {
+    .Toolbar Button {
+        display: none;
+    }
+}

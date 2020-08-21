@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '../../UI/Button/Button'
 
 const OrderSummary = props => {
+
     const ingredientSummary = Object.keys(props.ingredients)
         .map((el, i) => (
             <li key={el+i}><span style={{textTransform: 'capitalize'}}>{el}: {props.ingredients[el]}</span></li>
