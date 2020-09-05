@@ -1,24 +1,26 @@
+
+
 #   ==================== working with set copies and scope ====================
 
-def test(se):
-    print(se)
-    se = se.copy()
-    se.add(4)
-    print(se)
+# def test(se):
+#     print(se)
+#     se = se.copy()
+#     se.add(4)
+#     print(se)
 
-x = {1,2,3}
-print('o', x)
-test(x)
-print('o', x)
+# x = {1,2,3}
+# print('o', x)
+# test(x)
+# print('o', x)
 
 #   ==================== str.maketrans() and str.translate ====================
 
-x = 'abcba'
-# y = x.maketrans('ab', '12')
-y = x.maketrans({'a': None, 'b': None})
-print(y)
-z = x.translate(y)
-print(z)
+# x = 'abcba'
+# # y = x.maketrans('ab', '12')
+# y = x.maketrans({'a': None, 'b': None})
+# print(y)
+# z = x.translate(y)
+# print(z)
 
 
 #   ==================== any() and all() built-ins ====================

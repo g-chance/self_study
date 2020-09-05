@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
 import Modal from '../../components/UI/Modal/Modal'
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
+import axios from '../../axios-orders'
+import Spinner from '../../components/UI/Spinner/Spinner'
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -14,15 +17,19 @@ const INGREDIENT_PRICES = {
 const BuilderBuilder = () => {
 
     const [state, setState] = useState({
-        ingredients: {
-            salad: 0,
-            bacon: 0,
-            cheese: 0,
-            meat: 0
-        },
+        ingredients: null,
         totalPrice: 4,
         purchasing: false,
+        loading: false,
     })
+
+    useEffect(() => {
+        axios.get(`https://react-my-burger-478c9.firebaseio.com/Ingredients.json`)
+            .then(resp => {
+                setState({ ...state, ingredients: resp.data })
+            })
+            .catch(err => console.error(err))
+    }, [])
 
     const addIngredientHandler = type => {
         const oldCount = state.ingredients[type];
@@ -35,8 +42,8 @@ const BuilderBuilder = () => {
         const oldPrice = state.totalPrice
         const newPrice = oldPrice + priceAddition
         setState({
-            ...state, 
-            ingredients: updatedIngredients, 
+            ...state,
+            ingredients: updatedIngredients,
             totalPrice: newPrice
         })
     }
@@ -54,8 +61,8 @@ const BuilderBuilder = () => {
         const oldPrice = state.totalPrice
         const newPrice = oldPrice - priceDeduction
         setState({
-            ...state, 
-            ingredients: updatedIngredients, 
+            ...state,
+            ingredients: updatedIngredients,
             totalPrice: newPrice
         })
     }
@@ -70,30 +77,68 @@ const BuilderBuilder = () => {
         })
     }
     const purchaseContinueHandler = () => {
-        alert('You continued!')
+        // alert('You continued!')
+        setState({
+            ...state, loading: true
+        })
+        const order = {
+            ingredients: state.ingredients,
+            price: state.totalPrice,
+            customer: {
+                name: 'Grep',
+                address: {
+                    street: 'Place 101',
+                    zip: 12345
+                },
+                email: 'grep@grep.com',
+            },
+            deliveryMethod: 'superSlow'
+        }
+        axios.post('/orders.json', order)
+            .then(resp => {
+                setState({ ...state, loading: false, purchasing: false })
+            })
+            .catch(err => {
+                setState({ ...state, loading: false, purchasing: false })
+            })
     }
 
-    const amounts = {...state.ingredients}
+    const amounts = { ...state.ingredients }
+    
+    let orderSummary = null
+    let burger = <Spinner />
+
+    if (state.ingredients) {
+        burger = (
+            <>
+                <Burger ingredients={state.ingredients} />
+                <BuildControls
+                    ingredientAdded={addIngredientHandler}
+                    ingredientRemoved={removeIngredientHandler}
+                    amounts={amounts}
+                    price={state.totalPrice}
+                    ordered={purchaseHandler}
+                />
+            </>
+        )
+        orderSummary = <OrderSummary
+            ingredients={state.ingredients}
+            purchaseCanceled={purchaseCancelHandler}
+            purchaseContinued={purchaseContinueHandler}
+            price={state.totalPrice} />
+    }
+    if (state.loading) {
+        orderSummary = <Spinner />
+    }
 
     return (
         <>
             <Modal show={state.purchasing} modalClosed={purchaseCancelHandler}>
-                <OrderSummary 
-                    ingredients={state.ingredients}
-                    purchaseCanceled={purchaseCancelHandler}
-                    purchaseContinued={purchaseContinueHandler} 
-                    price={state.totalPrice}/>
+                {orderSummary}
             </Modal>
-            <Burger ingredients={state.ingredients} />
-            <BuildControls
-                ingredientAdded={addIngredientHandler}
-                ingredientRemoved={removeIngredientHandler}
-                amounts={amounts}
-                price={state.totalPrice}
-                ordered={purchaseHandler}
-            />
+            {burger}
         </>
     )
 }
 
-export default BuilderBuilder
+export default withErrorHandler(BuilderBuilder, axios)
