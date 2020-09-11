@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Modal from '../../components/UI/Modal/Modal'
-import axios from 'axios'
 
-const withErrorHandler = (WrappedComponent, axios) => {
+const withErrorHandler = (WrappedComponent, axioss) => {
     return props => {
 
         const [state, setState] = useState({
@@ -10,11 +9,11 @@ const withErrorHandler = (WrappedComponent, axios) => {
         })
 
         useEffect(() => {
-            axios.interceptors.request.use(req => {
+            axioss.interceptors.request.use(req => {
                 setState({ error: null })
                 return req
             })
-            axios.interceptors.response.use(res => res, error => {
+            axioss.interceptors.response.use(res => res, error => {
                 setState({ error: error })
             })
         }, [])

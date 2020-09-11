@@ -1,4 +1,8 @@
+#   ==================== bisect module ====================
+import bisect
 
+x = [1,2,3,3,5]
+print(bisect.bisect(x, 5))
 
 #   ==================== working with set copies and scope ====================
 
