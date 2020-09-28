@@ -1,8 +1,35 @@
-#   ==================== bisect module ====================
-import bisect
 
-x = [1,2,3,3,5]
-print(bisect.bisect(x, 5))
+
+#   ==================== Merge Sort (again!) ====================
+
+def merge(arr1, arr2):
+    merged = []
+    i = j = 0
+    while i < len(arr1) and j < len(arr2):
+        if arr1[i] < arr2[j]:
+            merged.append(arr1[i])
+            i += 1
+        else:
+            merged.append(arr2[j])
+            j += 1
+    merged += arr1[i:] if i < len(arr1) else arr2[j:]
+    return merged
+
+def mergeSort(arr):
+    if len(arr) <= 1:
+        return arr
+    l = len(arr) // 2
+    return merge(mergeSort(arr[:l]), mergeSort(arr[l:]))
+
+print(mergeSort([5,4,3,2,1]))
+
+
+#   ==================== bisect module ====================
+# import bisect
+
+# x = [1,2,3,3,5]
+# print(bisect.bisect(x, 5))
+
 
 #   ==================== working with set copies and scope ====================
 
@@ -16,6 +43,7 @@ print(bisect.bisect(x, 5))
 # print('o', x)
 # test(x)
 # print('o', x)
+
 
 #   ==================== str.maketrans() and str.translate ====================
 
