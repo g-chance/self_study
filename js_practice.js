@@ -1,3 +1,11 @@
+//   ==================== setTimeout ====================
+
+console.log('not timed out')
+setTimeout(() => {
+    console.log('timed out')
+}, 500)
+
+
 //   ==================== Spread / Destructuring ====================
 
 let myArr = [1,2,3,4]

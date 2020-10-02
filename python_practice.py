@@ -1,27 +1,71 @@
+#   ==================== Number Conversion ====================
 
+def addStrings(str1, str2):
+
+    def makeNum(s):
+        num, dec, div = 0, 0, 1
+        isDec = False
+        for c in s:
+            if c == '.':
+                isDec = True
+                continue
+            if not isDec:
+                num = num * 10 + ord(c) - ord('0')
+            else:
+                dec = dec * 10 + ord(c) - ord('0')
+                div *= 10
+        if div > 1:
+            dec /= div
+        return num + dec
+
+    s1 = makeNum(str1)
+    s2 = makeNum(str2)
+    return str(s1+s2).strip('.0')
+
+print('addStrings', addStrings('10000000000000000000000000000001', '10000000000000000000000000000001'))
+
+print(bin(int('0b11', 2) + int('0b11', 2)))
+x = 46
+x = hex(x)
+print(x)
+y = int(x, base=16)
+print(y)
+
+
+#   ==================== Slicing ====================
+
+# x = ['a', 'b', 'c', 'd', 'e']
+# print(x[0:])
+# print(x[0::])
+# print(x[0::1])
+# # IMPORTANT -- a positive 'step' without an explicit start implicitly sets the start to 0,
+#     # where a negative 'step' without an explicit start implicitly sets the start to -1
+# print(x[::2])
+# print(x[::-1])
+# print(x[::-2])
 
 #   ==================== Merge Sort (again!) ====================
 
-def merge(arr1, arr2):
-    merged = []
-    i = j = 0
-    while i < len(arr1) and j < len(arr2):
-        if arr1[i] < arr2[j]:
-            merged.append(arr1[i])
-            i += 1
-        else:
-            merged.append(arr2[j])
-            j += 1
-    merged += arr1[i:] if i < len(arr1) else arr2[j:]
-    return merged
+# def merge(arr1, arr2):
+#     merged = []
+#     i = j = 0
+#     while i < len(arr1) and j < len(arr2):
+#         if arr1[i] < arr2[j]:
+#             merged.append(arr1[i])
+#             i += 1
+#         else:
+#             merged.append(arr2[j])
+#             j += 1
+#     merged += arr1[i:] if i < len(arr1) else arr2[j:]
+#     return merged
 
-def mergeSort(arr):
-    if len(arr) <= 1:
-        return arr
-    l = len(arr) // 2
-    return merge(mergeSort(arr[:l]), mergeSort(arr[l:]))
+# def mergeSort(arr):
+#     if len(arr) <= 1:
+#         return arr
+#     l = len(arr) // 2
+#     return merge(mergeSort(arr[:l]), mergeSort(arr[l:]))
 
-print(mergeSort([5,4,3,2,1]))
+# print(mergeSort([5,4,3,2,1]))
 
 
 #   ==================== bisect module ====================
@@ -50,6 +94,7 @@ print(mergeSort([5,4,3,2,1]))
 # x = 'abcba'
 # # y = x.maketrans('ab', '12')
 # y = x.maketrans({'a': None, 'b': None})
+# y = x.maketrans('ab', 'mn')
 # print(y)
 # z = x.translate(y)
 # print(z)
