@@ -1,35 +1,37 @@
+
+
 #   ==================== Number Conversion ====================
 
-def addStrings(str1, str2):
+# def addStrings(str1, str2):
 
-    def makeNum(s):
-        num, dec, div = 0, 0, 1
-        isDec = False
-        for c in s:
-            if c == '.':
-                isDec = True
-                continue
-            if not isDec:
-                num = num * 10 + ord(c) - ord('0')
-            else:
-                dec = dec * 10 + ord(c) - ord('0')
-                div *= 10
-        if div > 1:
-            dec /= div
-        return num + dec
+#     def makeNum(s):
+#         num, dec, div = 0, 0, 1
+#         isDec = False
+#         for c in s:
+#             if c == '.':
+#                 isDec = True
+#                 continue
+#             if not isDec:
+#                 num = num * 10 + ord(c) - ord('0')
+#             else:
+#                 dec = dec * 10 + ord(c) - ord('0')
+#                 div *= 10
+#         if div > 1:
+#             dec /= div
+#         return num + dec
 
-    s1 = makeNum(str1)
-    s2 = makeNum(str2)
-    return str(s1+s2).strip('.0')
+#     s1 = makeNum(str1)
+#     s2 = makeNum(str2)
+#     return str(s1+s2).strip('.0')
 
-print('addStrings', addStrings('10000000000000000000000000000001', '10000000000000000000000000000001'))
+# print('addStrings', addStrings('10000000000000000000000000000001', '10000000000000000000000000000001'))
 
-print(bin(int('0b11', 2) + int('0b11', 2)))
-x = 46
-x = hex(x)
-print(x)
-y = int(x, base=16)
-print(y)
+# print(bin(int('0b11', 2) + int('0b11', 2)))
+# x = 46
+# x = hex(x)
+# print(x)
+# y = int(x, base=16)
+# print(y)
 
 
 #   ==================== Slicing ====================
