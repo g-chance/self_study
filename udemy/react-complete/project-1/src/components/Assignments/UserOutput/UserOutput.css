@@ -1,0 +1,6 @@
+.UserOutput {
+    border: 5px solid green;
+}
+.UserOutput p {
+    font-style: italic;
+}

@@ -1,0 +1,70 @@
+variables:
+    -must declare variables with let or const
+        -const must be initialized (assigned value) and cannot be reassigned afterwards
+        -let doesn't have to be initialized (assign value) when declared, and can be resassigned
+    -if you forget to declare a variable, it will be auto declared in the global scope -- this is BAD practice
+
+functions:
+    -defined by: function()
+    -hoisted to the top of the script on execution
+    -you CAN access and change global+parent scope variables from within a function (not the other way around), but it is BAD practice
+        -a function that does NOT change global variables and only works with variables within it's scope is a 'pure' function
+        -declaring a variable with the same name inside the function as a global variable will prevent the global variable from being
+            overwritten (this is more like python). These are called 'Shadowed Variables'
+    -DEFAULT VALUES:
+      -in js, parameters with default values can be placed before those without them
+    -passing an arbitrary number of arguments to a function:
+      -in python, you accept arbitrary positional arguments with a parameter preceded by one asterisk following all defined positional
+      arguments (ie. *args), and arbitrary keyword arguments with a parameter preceded by 2 asterisks following all positional arguments
+      and defined keyword arguments (ie. **kwargs)
+      -in js, you accept ALL arbitrary arguments with the rest operator, which must be the last parameter preceded by a ... (ie ...args),
+      note: this will place the arguments into an array for use within the function body
+
+syntax:
+    -expressions end with a semicolon
+    -no semicolon necessary after a statement(ie. functions, loops)
+
+type conversion:
+    -js makes assumptions about what you intended and implicitly converts data types to avoid errors (ie. if you try to 
+        add a string and a number, js will convert the number to a string and concatenate them)
+    -to explicitly convert data a number, use the parse<NumberType>(Data) function or add a '+' in front of the string
+    -to explicitly convert data to a string, use the <Data>.toString() method
+
+objects:
+    -similar to dictionaries
+    -use '.'(dot) notation to access keys(also called properties)/values (ie. object.key will return the value stored in key)
+
+built-ins:
+    -python: type(<data>) == js: typeof <data>
+
+conditionals:
+  -COMPARISON OPERATORS:
+    -in js, the '===' operator exists to compare whether value AND type are equal, because the '==' operator could compare
+    equal when comparing a number to a string because of js's implicit type conversion (ie. 2 == "2")
+    -a bang(!) in js essentially replaces the 'not' keyword in python
+    -different objects in js will NEVER compare equal, whereas in python they can(using ==)
+    -&&(js) == and(py); ||(js) == or(py)
+  -elif(python) == else if(js)
+  -TRUTHY / FALSY
+    -in js, empty objects ARE evaluated as true (in python they are not)
+  -TERNARY
+    -in js, written as <boolean ? value1 : value1> (which translates to `if boolean then value1 else value2)
+    -in py, writte as <value1 if boolean else value2>
+
+loops:
+  -for loop
+    js: for(let i=0; i<5; i++)
+    py: for i in range(5)
+  -for-of loop (iterate over all elements of an array)
+    js: for(const num of nums)
+    py: for num in nums
+  -for-in loop (iterate over all keys in a dictionary)
+    js: for(const key in dict)
+    py: for key in dict
+  -while loop (no major differences)
+  -do-while loop (only in js - execute code BEFORE checking condition, 
+    ie. the below code will log 3 whereas a normal while loop wouldn't
+        j = 3; 
+        do { 
+          console.log(j);
+        } while (j < 3);
