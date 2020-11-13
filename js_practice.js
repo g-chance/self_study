@@ -1,22 +1,29 @@
+console.log('Be good man'.replace(new RegExp(/\s+/g), ''))
+
+let x = '1'
+let y = '2'
+console.log(x, y)
+console.log(x.replaceAll(' ',''))
+
 //   ==================== setTimeout ====================
 
-console.log('not timed out')
-setTimeout(() => {
-    console.log('timed out')
-}, 500)
+// console.log('not timed out')
+// setTimeout(() => {
+//     console.log('timed out')
+// }, 500)
 
 
 //   ==================== Spread / Destructuring ====================
 
-let myArr = [1,2,3,4]
-let [a, , ...c] = myArr
-console.log(a,c)
+// let myArr = [1,2,3,4]
+// let [a, , ...c] = myArr
+// console.log(a,c)
 
-let myObj = {a:'butts', 2:'farts', 3:3, 4:4}
-let {a: newName, ...desctructuredObj} = myObj
-let {2: newName2} = myObj
-console.log(newName, desctructuredObj)
-console.log(newName2)
+// let myObj = {a:'butts', 2:'farts', 3:3, 4:4}
+// let {a: newName, ...desctructuredObj} = myObj
+// let {2: newName2} = myObj
+// console.log(newName, desctructuredObj)
+// console.log(newName2)
 
 
 //   ==================== Ternary Expressions ====================
