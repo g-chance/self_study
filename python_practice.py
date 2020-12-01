@@ -1,3 +1,5 @@
+
+
 #   ==================== Binary Search Review ====================
 
 # def checkForNum(arr, num):

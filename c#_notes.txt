@@ -1,0 +1,32 @@
+.NET is not limited to C#
+    CLR - Common Language Runtime
+        translates bytevode into native code(machine code) - called JIT (Just in Time compilation)
+    Class Library
+        Assembly == dll(dynamically linked library) or exe file, which is a container of related namespaces(namespace == related classes)
+
+Data Types
+    Primitive Types
+        -real number types include float, double, and decimal, however c# always defaults to double when initializing 
+        any of these types, so to use float and decimal, they have to be.. set explicitly like
+            float number = 1.2f 
+            decimal number = 1.2m
+        where the f tells c# the type is float, and m is decimal
+
+Overflowing
+    in c#, integer overflow happens when a number is larger than its datatype allows. By default, this fails silently
+    and will 'reset' the number (ie. if max is 255 and you add 2, you end up with 1). The "checked" keyword will cause
+    an exception to be thrown like
+        checked 
+        { 
+            byte number = 255;
+            number = number + 1;
+        }
+
+Operators
+    Arithmetic
+        Increment(++) and Decrement(--) operators can be applied prefix or postfix. If postfixed (ie. a++), the
+        increment happens AFTER any expression which may be referencing it, like
+            int a = 1;
+            int b = a++;
+        then b will be assigned to 1 before a is increased to 2. But if it was prefixed (ie ++a), then a would be
+        incremented by 1 before being assigned to b, and they would both be equal to 2.

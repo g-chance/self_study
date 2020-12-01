@@ -1,0 +1,15 @@
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/bin/Debug/net5.0/Practice.deps.json
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/bin/Debug/net5.0/Practice.runtimeconfig.json
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/bin/Debug/net5.0/Practice.runtimeconfig.dev.json
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/bin/Debug/net5.0/Practice.dll
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/bin/Debug/net5.0/ref/Practice.dll
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/bin/Debug/net5.0/Practice.pdb
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/obj/Debug/net5.0/Practice.csprojAssemblyReference.cache
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/obj/Debug/net5.0/Practice.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/obj/Debug/net5.0/Practice.AssemblyInfoInputs.cache
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/obj/Debug/net5.0/Practice.AssemblyInfo.cs
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/obj/Debug/net5.0/Practice.csproj.CoreCompileInputs.cache
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/obj/Debug/net5.0/Practice.dll
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/obj/Debug/net5.0/ref/Practice.dll
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/obj/Debug/net5.0/Practice.pdb
+/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/obj/Debug/net5.0/Practice.genruntimeconfig.cache
