@@ -30,3 +30,28 @@ Operators
             int b = a++;
         then b will be assigned to 1 before a is increased to 2. But if it was prefixed (ie ++a), then a would be
         incremented by 1 before being assigned to b, and they would both be equal to 2.
+
+Control Flow
+    Conditionals:
+        C# has switch/case statements!
+    Iterating:
+        for, while, and do-while are all almost the same as JavaScript
+        forEach loops are used to loop through enumerables (ie. forEach (var num in numbers))
+
+Arrays
+    Single Dimentional
+        A normal Arrays
+    Multi Dimentional
+        
+        Jagged
+            Singlal Dimentional Arrays of different length nested within single dimentional array
+            Created by initializing a single dim arr and then initializing each row separately like:
+                var arr = new int[3][] # note the empty bracket denoting it's multi dimentional
+                array[0] = new int[4]
+                array[1]...
+                etc...
+        Rectangular
+            Arrays of same length nested within signel dimentional array
+            Created by providing rows and columns at initialization (ie. var matrix = new int[3, 5] # 3 rows 5 columns)
+List
+    The name of a dynamically sized Array

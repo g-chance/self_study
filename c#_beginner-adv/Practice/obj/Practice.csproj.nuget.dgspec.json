@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/Practice.csproj": {}
+    "/Users/gchance/Documents/webDev/selfStudy/c#_beginner-adv/Practice/Practice.csproj": {}
   },
   "projects": {
-    "/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/Practice.csproj": {
+    "/Users/gchance/Documents/webDev/selfStudy/c#_beginner-adv/Practice/Practice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/Practice.csproj",
+        "projectUniqueName": "/Users/gchance/Documents/webDev/selfStudy/c#_beginner-adv/Practice/Practice.csproj",
         "projectName": "Practice",
-        "projectPath": "/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/Practice.csproj",
+        "projectPath": "/Users/gchance/Documents/webDev/selfStudy/c#_beginner-adv/Practice/Practice.csproj",
         "packagesPath": "/Users/gchance/.nuget/packages/",
-        "outputPath": "/Users/gchance/Documents/webDev/self_study/c#_beginner-adv/Practice/obj/",
+        "outputPath": "/Users/gchance/Documents/webDev/selfStudy/c#_beginner-adv/Practice/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/gchance/.nuget/NuGet/NuGet.Config"
