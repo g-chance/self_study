@@ -1,0 +1,11 @@
+/Users/gchance/Documents/webDev/selfStudy/leapPrework/HelloWorld/HelloWorld/bin/Release/netcoreapp3.1/HelloWorld.deps.json
+/Users/gchance/Documents/webDev/selfStudy/leapPrework/HelloWorld/HelloWorld/bin/Release/netcoreapp3.1/HelloWorld.runtimeconfig.json
+/Users/gchance/Documents/webDev/selfStudy/leapPrework/HelloWorld/HelloWorld/bin/Release/netcoreapp3.1/HelloWorld.runtimeconfig.dev.json
+/Users/gchance/Documents/webDev/selfStudy/leapPrework/HelloWorld/HelloWorld/bin/Release/netcoreapp3.1/HelloWorld.dll
+/Users/gchance/Documents/webDev/selfStudy/leapPrework/HelloWorld/HelloWorld/bin/Release/netcoreapp3.1/HelloWorld.pdb
+/Users/gchance/Documents/webDev/selfStudy/leapPrework/HelloWorld/HelloWorld/obj/Release/netcoreapp3.1/HelloWorld.AssemblyInfoInputs.cache
+/Users/gchance/Documents/webDev/selfStudy/leapPrework/HelloWorld/HelloWorld/obj/Release/netcoreapp3.1/HelloWorld.AssemblyInfo.cs
+/Users/gchance/Documents/webDev/selfStudy/leapPrework/HelloWorld/HelloWorld/obj/Release/netcoreapp3.1/HelloWorld.csproj.CoreCompileInputs.cache
+/Users/gchance/Documents/webDev/selfStudy/leapPrework/HelloWorld/HelloWorld/obj/Release/netcoreapp3.1/HelloWorld.dll
+/Users/gchance/Documents/webDev/selfStudy/leapPrework/HelloWorld/HelloWorld/obj/Release/netcoreapp3.1/HelloWorld.pdb
+/Users/gchance/Documents/webDev/selfStudy/leapPrework/HelloWorld/HelloWorld/obj/Release/netcoreapp3.1/HelloWorld.genruntimeconfig.cache
